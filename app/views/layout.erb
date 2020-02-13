@@ -7,26 +7,35 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
-    <title>SinatraProject</title>
+    <title>Sinatra Project</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+    <div class="nav">
+      <% if logged_in? %>
+        <a href="/logout">Logout</a>
+        <a href="/build_entries">All Build Entries</a>
+        <a href="/build_entries/new">New Entry</a>
+      <% end %>
+    </div>
     <div class="wrapper">
+      <% if flash[:message] %>
+      <h3><%= flash[:message] %></h3>
+      <% end %>
+      <% if flash[:errors] %>
+      <h3 style="color: red;"><%= flash[:errors] %></h3>
+      <% end %>
 
         <%= yield %>
 
       <footer class="branding">
-        <small>&copy; 2020 <strong>SinatraProject</strong></small>
+        <small>&copy; 2020 <strong>Sinatra Project</strong></small>
       </footer>
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!--[if lt IE 7]>
-      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-    <![endif]-->
   </body>
 </html>
