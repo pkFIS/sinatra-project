@@ -1,0 +1,13 @@
+<h3><%= @build_entry.title %></h3>
+<p><%= @build_entry.content %></p>
+<p>Created by: <%= @build_entry.user.name %></p>
+<p>created on <%= @build_entry.formatted_created_at %></p>
+
+<% if authorized_to_edit?(@build_entry) %>
+  <a href="/build_entries/<%= @build_entry.id %>/edit">Edit Entry</a>
+  <br><br>
+  <form class="" action="/build_entries/<%= @build_entry.id %>" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" name="" value="Delete Build Entry">
+  </form>
+<% end %>

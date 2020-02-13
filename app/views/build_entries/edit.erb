@@ -1,0 +1,10 @@
+EDIT PAGE FOR A BUILD ENTRY
+
+<form class="" action="/build_entries/<%= @build_entry.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <label for="title">Title:</label>
+  <input type="text" name="title" value ="<%= @build_entry.title %>">
+  <label for="content">Content:</label>
+  <textarea name="content" style="width:auto; height:auto;"><%= @build_entry.content %></textarea>
+  <input type="submit" name="" value="Edit Entry">
+</form>

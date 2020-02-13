@@ -1,0 +1,8 @@
+ALL BUILD ENTRIES
+<% @build_entries.each do |build_entry| %>
+  <h4><a href="/build_entries/<%= build_entry.id %>"><%= build_entry.created_at %></a></h4>
+  <strong><%= build_entry.title %></strong>
+  <p><%= build_entry.content %></p>
+  <p>By <%= build_entry.user.name %></p>
+  <br><br>
+<% end %>
